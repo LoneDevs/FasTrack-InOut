@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "720783954726",
+    "firebase_url": "https://fastrackinout-32494.firebaseio.com",
+    "project_id": "fastrackinout-32494",
+    "storage_bucket": "fastrackinout-32494.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720783954726:android:3afa6929f12fda6477e7e7",
+        "android_client_info": {
+          "package_name": "com.example.inout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720783954726-vduu6fa8ssvla6ao5nhvj57koija9vqu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.inout",
+            "certificate_hash": "e88513deffa30aec8b74793eefdec47b2a4a4f50"
+          }
+        },
+        {
+          "client_id": "720783954726-7325jo5hon9oqqu3mnst0qqv7pvqhlbh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALGr9WAIVFESAncXLYpXxT4GNKqm-x88M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720783954726-7325jo5hon9oqqu3mnst0qqv7pvqhlbh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
