@@ -1,6 +1,6 @@
 # InOut Salary Calculator App
 
-A Simple native android application which enable an employee of an 
+A Simple native android application which enables an employee of an 
 organization 
 - To signup and calculate their salary based on the In time and
   Out time chosen by the employee.
