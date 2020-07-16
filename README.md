@@ -16,15 +16,15 @@ You can download the Android app by clicking the link below.
 
 ## Overview 
 
-- Login    
+#### Login    
 ![Image 4: ](scrnshots/login.jpg)
 
-- Login 
+#### SignUp 
 ![Image 4: ](scrnshots/signup.jpg)
 
-- Dashboard
+#### Dashboard
 ![Image 4: ](scrnshots/dashboard.jpg)
 
-- Salary
+#### Salary
 ![Image 4: ](scrnshots/salary.jpg)
 
