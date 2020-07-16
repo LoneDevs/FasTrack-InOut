@@ -14,10 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,6 +36,8 @@ public class SignupActivity extends AppCompatActivity {
 
     private String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
 
+    private String userID;
+
     private String name_validate;
     private String empid_validate;
     private String email_validate;
@@ -38,6 +45,7 @@ public class SignupActivity extends AppCompatActivity {
     private String repassword_validate ;
 
     private FirebaseAuth mAuth;
+    private FirebaseFirestore mStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,7 @@ public class SignupActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         mAuth = FirebaseAuth.getInstance();
+        mStore = FirebaseFirestore.getInstance();
 
         if (mAuth.getCurrentUser() != null){
             finish();
@@ -77,11 +86,13 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pg.setVisibility(View.VISIBLE);
-                String emailTxt = email.getText().toString().trim();
+                final String emailTxt = email.getText().toString().trim();
                 String passwordTxt = password.getText().toString().trim();
+                final String nameTxt = name.getText().toString().trim();
+                final String empidTxt = empid.getText().toString().trim();
 
-                name_validate = validateName(name.getText().toString().trim());
-                empid_validate= validateEmpId(empid.getText().toString().trim());
+                name_validate = validateName(nameTxt);
+                empid_validate= validateEmpId(empidTxt);
                 email_validate=validateEmail(emailTxt);
                 password_validate=validatePassword(passwordTxt);
                 repassword_validate=validatePassword(password.getText().toString().trim());
@@ -131,6 +142,19 @@ public class SignupActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+                            userID = mAuth.getCurrentUser().getUid();
+                            DocumentReference df = mStore.collection("employees").document(userID);
+                            Map<String,Object> employee = new HashMap<>();
+                            employee.put("name",nameTxt);
+                            employee.put("empid",empidTxt);
+                            employee.put("email",emailTxt);
+                            employee.put("salary",0);
+                            df.set(employee).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                   Toast.makeText(getApplicationContext(),"User details added Successfully !",Toast.LENGTH_SHORT).show();
+                                }
+                            });
                             Toast.makeText(SignupActivity.this,"User Created successfully",Toast.LENGTH_SHORT).show();
                             pg.setVisibility(View.INVISIBLE);
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
