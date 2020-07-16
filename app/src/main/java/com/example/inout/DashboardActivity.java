@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -28,7 +29,8 @@ import javax.annotation.Nullable;
 public class DashboardActivity extends AppCompatActivity {
 
     private TimePicker tpIn,tpOut;
-    private TextView logoutTxt,username;
+    private TextView username;
+    private ImageButton logoutImg;
     private Button submit,viewBalance;
     private ProgressBar pg;
 
@@ -58,7 +60,7 @@ public class DashboardActivity extends AppCompatActivity {
         tpOut = findViewById(R.id.timeout);
         submit = findViewById(R.id.submit);
         viewBalance = findViewById(R.id.balance);
-        logoutTxt =findViewById(R.id.logout);
+        logoutImg =findViewById(R.id.logout);
         pg=findViewById(R.id.progressBar3);
         pg.setVisibility(View.VISIBLE);
 
@@ -105,7 +107,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        logoutTxt.setOnClickListener(new View.OnClickListener() {
+        logoutImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 logout();

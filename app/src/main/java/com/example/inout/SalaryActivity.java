@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class SalaryActivity extends AppCompatActivity {
 
     private TextView name,empid,balance;
     private EditText amount;
+    private ImageButton back;
     private Button withdraw;
     private ProgressBar pg;
 
@@ -59,6 +61,8 @@ public class SalaryActivity extends AppCompatActivity {
         amount=findViewById(R.id.amount);
         withdraw=findViewById(R.id.withdraw);
         pg=findViewById(R.id.progressBar4);
+        back =findViewById(R.id.back);
+
         pg.setVisibility(View.VISIBLE);
 
 
@@ -74,6 +78,14 @@ public class SalaryActivity extends AppCompatActivity {
         });
 
         pg.setVisibility(View.INVISIBLE);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),DashboardActivity.class));
+                finish();
+            }
+        });
 
         withdraw.setOnClickListener(new View.OnClickListener() {
             @Override
