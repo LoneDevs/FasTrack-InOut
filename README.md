@@ -12,7 +12,7 @@ organization
 
 You can download the Android app by clicking the link below.  
 
-- [Download: Click-here](https://drive.google.com/file/d/1YFn8FPrzE5Vj7M8AtcXzLez3744K347-/view?usp=sharing) to download the app.
+- [Click-here](https://github.com/LoneDevs/FasTrack-InOut/releases/tag/1.0.1) to download the app.
 
 ## Overview 
 
